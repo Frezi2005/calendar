@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/c98a31cca4.js" crossorigin="anonymous"></script>
 </head>
 
@@ -72,6 +73,10 @@
             </form>
         </div>
     </div>
+
+    <?php
+        include "layouts/footer.html";
+    ?>
 
 </body>
 

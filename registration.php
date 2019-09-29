@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/c98a31cca4.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>

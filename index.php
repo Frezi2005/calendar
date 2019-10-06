@@ -33,20 +33,20 @@
 
             <span class="logInText">LOG IN</span>
 
-            <form action="index.php" method="post">
+            <form action="login.php" method="post">
 
                 <div>
-                    <input type="text" class="usernameInput" name="usernameInput" required/>
+                    <input type="text" class="usernameInput" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required/>
                     <label for="usernameInput">Username</label>
                 </div>
                 
                 <div>
-                    <input type="password" class="passwordInput" name="password" required/>
+                    <input type="password" class="passwordInput" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>"  required/>
                     <label for="passwordInput">Password</label>
                 </div>
 
                 <div class="rememberMeContainer">
-                    <input type="checkbox" class="rememberMe" name="rememberMeCheckbox"/>
+                    <input type="checkbox" class="rememberMe" name="rememberMe"/>
                     Remember Me
                 </div>
 
@@ -59,13 +59,13 @@
                 </div>
 
                 <div class="registerContainer">
-                    <a class="register" href="#">
+                    <a class="register" href="registrationForm.php">
                         Don't have account? Register now!
                     </a>
                 </div>
 
                 <div class="forgotPasswordContainer">
-                    <a class="forgotPassword" href="#">
+                    <a class="forgotPassword" href="forgotPassword.php">
                         Forgot Password?
                     </a>
                 </div>

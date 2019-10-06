@@ -24,9 +24,9 @@
             $mail->Port = "587";       
             
             $mail->isHTML();                                        
-            $mail->Username = 'korepetycje138@wp.pl';                    
-            $mail->Password = 'password1234';                                     
-            $mail->setFrom('korepetycje138@wp.pl');  
+            $mail->Username = '**************';                    
+            $mail->Password = '*************';                                     
+            $mail->setFrom('**************');  
                                             
             $mail->Subject = 'Account activation link';
             $mail->Body = <<<EMAIL
@@ -34,7 +34,7 @@
             
             Please activate your account by clicking the following activation <a href='localhost/Calendar/activate.php?token=$token' target='_blank' alt='account activation link'>link</a>
 EMAIL;
-            $mail->addAddress('kamil.wan05@gmail.com');  
+            $mail->addAddress('************');  
         
 
             $mail->send();

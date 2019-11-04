@@ -25,9 +25,9 @@
             
             $mail->isHTML();                                        
 
-            $mail->Username = 'korepetycje138@wp.pl';                    
-            $mail->Password = 'password12345';                                     
-            $mail->setFrom('korepetycje138@wp.pl');  
+            $mail->Username = '************';                    
+            $mail->Password = '**********';                                     
+            $mail->setFrom('******************');  
             $mail->AddEmbeddedImage('img/calendar-alt-solid.svg', 'calendar-logo');
 
                                             

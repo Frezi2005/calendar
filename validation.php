@@ -1,78 +1,77 @@
 <?php
 
-    $allValdated = false;
-    $nameErr;
-    $surnameErr;
-    $usernameErr;
-    $mailErr;
-    $passwordErr;
-    $usernameErr;
+    session_start();
 
-    function validateName($string) {
+    $allChecked = true;
 
-        if (strlen($string) < 2) {
-            $allValidated = false;
-            $nameErr = "Your name is too short. It has to be at least 2 characters long.";
+    function validate($name, $surname, $username, $email, $password1, $password2, $allChecked) {
+        if (strlen($name) < 2) {
+            $_SESSION['nameError'] = "Your name is too short. It has to be at least 2 characters long.";
+            $allChecked = false;
         }
 
-        if (preg_match('[\W]', $string)) {
-            $allValidated = false;
-            $nameErr = "Your name cannot contain any special character.";
+        if (preg_match('/[\W]/', $name)) {
+            $_SESSION['nameError'] = "Your name cannot contain any special character.";    
+            $allChecked = false;
+        }
+
+        
+        if (strlen($password1) < 8 || strlen($password1) > 20) {
+            $_SESSION['passwordError'] = "Your password must be between 8 and 20 characters long.";
+            $allChecked = false;
+        }
+
+        if (preg_match('/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]/', $password1) == false) {      
+            $_SESSION['passwordError'] = "Your password must contain at least 1 big letter, 1 special character, 1 number and 1 small letter.";
+            $allChecked = false;
         }
     
-    }
-
-    function validatePassword($string) {
-        
-        if (strlen($string) < 8 || strlen($string) > 20) {
-            $allValdated = false;
-            $passwordErr = "Your password must be between 8 and 20 characters long.";
+        if (strlen($surname) < 2) { 
+            $_SESSION['surnameError'] = "Your surname is too short. It has to be at least 2 characters long.";
+            $allChecked = false;
         }
 
-        if (preg_match('/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/', $string) == false) {
-            $allValidated = false;
-            $passwordErr = "Your password must contain at least 1 big letter, 1 special character, 1 number and 1 small letter.";
+        if (preg_match('/[\W]/', $surname)) {
+            $_SESSION['surnameError'] = "Your surname cannot contain any special character.";
+            $allChecked = false;
         }
 
-    }
 
-    function validateSurname() {
-        
-        if (strlen($string) < 2) {
-            $allValidated = false;
-            $surnameErr = "Your surname is too short. It has to be at least 2 characters long.";
+        if (strlen($username) < 2 || strlen($username) > 20) {
+            $_SESSION['usernameError'] = "Your username must be between 2 and 20 characters.";
+            $allChecked = false;
         }
 
-        if (preg_match('[\W]', $string)) {
-            $allValidated = false;
-            $surnameErr = "Your surname cannot contain any special character.";
-        }
-    
-    }
-
-    function validateUsername($string) {
-
-        if (strlen($string) < 2 || strlen($string) > 20) {
-            $allValidated = false;
-            $usernameErr = "Your username must be between 2 and 20 characters";
+        if (preg_match('/[\s]/', $username)) {
+            $_SESSION['usernameError'] = "Your username cannot contain any whitespaces.";
+            $allChecked = false;
         }
 
-    }
-
-    function validateEmail($string) {
-
-        if (!filter_var($string, FILTER_VALIDATE_EMAIL)) {
-            $allValdated = false;
-            $mailErr = "Your email has to be valid.";
+        if (preg_match('/[\s]/', $surname)) {
+            $_SESSION['surnameError'] = "Your surname cannot contain any whitespaces.";
+            $allChecked = false;
         }
 
-    }
+        if (preg_match('/[\s]/', $name)) {
+            $_SESSION['nameError'] = "Your name cannot contain any whitespaces.";
+            $allChecked = false;
+        }
 
-    function checkIfPasswordsAreMatching($password1, $password2) {
+        $em = filter_var($email, FILTER_VALIDATE_EMAIL);
+        if (!$em){
+            $_SESSION['emailError'] = "Your email has to be valid.";
+            $allChecked = false;
+        }
+
+
         if ($password2 != $password1) {
-            $allValdated = false;
-            $passwordErr = "Passwords must be the same";
+            $_SESSION['passwordError'] = "Passwords must be the same.";
+            $allChecked = false;
         }
+
+        return ($allChecked==false)? false : true;
+
     }
 
 ?>
+    

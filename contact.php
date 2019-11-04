@@ -1,11 +1,3 @@
-<?php
-
-    session_start();
-
-    require_once "dbConnection/dbconn.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +9,6 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/c98a31cca4.js" crossorigin="anonymous"></script>
-    <script src="js/showPassword.js"></script>
 </head>
 
 <body>
@@ -30,7 +21,7 @@
                 <i class="fas fa-calendar-alt calendar-icon"></i>
             </div>
 
-            <span class="logInText">LOG IN</span>
+            <span class="logInText">CONTACT</span>
 
             <form action="login.php" method="post">
 
@@ -42,7 +33,6 @@
                 <div>
                     <input type="password" class="passwordInput" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>"  required/>
                     <label for="passwordInput">Password</label>
-                    <i class="fas fa-eye eyeIcon"></i>
                 </div>
 
                 <div class="rememberMeContainer">
@@ -51,14 +41,7 @@
                 </div>
 
                 <div class="error">
-                    <?php
-                    if(isset($_SESSION["loginError"])){
-                        $error = $_SESSION["loginError"];
-                        echo "<span>$error</span>";
-                        session_unset();
-                    }
-                    ?>  
-
+                    <span><?= $error?></span>
                 </div>
 
                 <div class="loginBtnContainer">

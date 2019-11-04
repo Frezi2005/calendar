@@ -182,9 +182,12 @@ input:required {
     box-shadow:none;
 }
 
-.error {
-    color: rgb(112, 0, 0);
-    margin-bottom: 20px;
+.eyeIcon {
+    font-size: 23px;
+    position: absolute;
+    right: 10.5%;
+    top: 5px;
+    cursor: pointer;
 }
 
 @media (max-width: 450px) {

@@ -13,3 +13,36 @@ footer {
     line-height: 50px;
     font-size: 20px;
 }
+
+.error {
+    color: red;
+    margin-bottom: 20px;
+    font-size: 16px;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+.link {
+    font-size: 13px;
+    color: #e5e5e5;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+@media (max-width: 450px) {
+    footer {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1079px) {
+    footer {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    footer {
+        font-size: 14px;
+    }
+}

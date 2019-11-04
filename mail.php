@@ -24,10 +24,12 @@
             $mail->Port = "587";       
             
             $mail->isHTML();                                        
+
             $mail->Username = 'korepetycje138@wp.pl';                    
             $mail->Password = 'password12345';                                     
             $mail->setFrom('korepetycje138@wp.pl');  
             $mail->AddEmbeddedImage('img/calendar-alt-solid.svg', 'calendar-logo');
+
                                             
             $mail->Subject = 'Account activation link';
             $mail->Body = <<<EMAIL
@@ -65,8 +67,8 @@
                 </body>
             </html>
 EMAIL;
+
             $mail->addAddress($address);  
-        
 
             $mail->send();
         } catch (Exception $e) {

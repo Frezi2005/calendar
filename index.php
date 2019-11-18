@@ -1,8 +1,8 @@
 <?php
 
-    define('FACEBOOK_API','435090794072664');
+    define('FACEBOOK_API','');
 
-    define('FACEBOOK_SECRET','ce97d28f0126f997fd4dcbfa33673f1e');
+    define('FACEBOOK_SECRET','');
 
     define('REDIRECT_URI','http://localhost/Calendar');
 
@@ -38,7 +38,7 @@
     <script>
     window.fbAsyncInit = function() {
         FB.init({
-        appId      : '435090794072664',
+        appId      : '',
         cookie     : true,
         xfbml      : true,
         version    : 'v5.0'

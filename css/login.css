@@ -34,15 +34,11 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 10px;
     text-align: center;
-    background: #9152f8;
-    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
-    background: -o-linear-gradient(top, #7579ff, #b224ef);
-    background: -moz-linear-gradient(top, #7579ff, #b224ef);
-    background: linear-gradient(top, #7579ff, #b224ef);
-    color: white;
+    background-image: linear-gradient(to right top, #dffd11, #c9fe00, #b0fe00, #93ff00, #6fff00);
     -webkit-box-shadow: 10px 10px 30px -10px rgba(0,0,0,0.59);
     -moz-box-shadow: 10px 10px 30px -10px rgba(0,0,0,0.59);
     box-shadow: 10px 10px 30px -10px rgba(0,0,0,0.59);
+    overflow-y: auto;
 }
 
 input[type="text"], input[type="password"] {
@@ -50,7 +46,7 @@ input[type="text"], input[type="password"] {
     background-color: transparent;
     width: 80%;
     height: 30px;
-    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    border-bottom: 2px solid rgb(0, 0, 0);
     color: black;
     margin-right: 20px;
     margin-left: 20px;
@@ -74,7 +70,7 @@ form {
 
 .loginBtn {
   font-size: 16px;
-  color: #555555;
+  color: black;
   line-height: 1.2;
 
   display: -webkit-box;
@@ -110,14 +106,12 @@ form {
 
 .forgotPassword {
     font-size: 13px;
-    color: #e5e5e5;
     line-height: 1.5;
     text-decoration: none;
 }
 
 .register {
     font-size: 13px;
-    color: #e5e5e5;
     line-height: 1.5;
     text-decoration: none;
 }
@@ -144,7 +138,6 @@ form {
 
 .logInText {
     font-size: 30px;
-    color: #fff;
     line-height: 1.2;
     text-align: center;
     text-transform: uppercase;
@@ -164,7 +157,6 @@ form {
 }
 
 .wrapper form div label {
-    color: white;
     position: absolute;
     left: 12%;
     top: 5px;
@@ -190,10 +182,46 @@ input:required {
     cursor: pointer;
 }
 
+.FBLogin {
+    display: block;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(45, 45, 194);
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.rightLine, .leftLine {
+    position: absolute !important;
+    background-color: black;
+    height: 2px;
+    width: 40%;
+}
+
+.rightLine {
+    right: 20px;
+    top: 12.5px;
+}
+
+.leftLine {
+    left: 20px;
+    top: 12.5px;
+}
+
 @media (max-width: 450px) {
     .wrapper {
         width: 95%;
         height: 75%;
+    }
+
+    .rightLine, .leftLine {
+        position: absolute !important;
+        background-color: black;
+        height: 2px;
+        width: 35%;
     }
 }
 
@@ -208,6 +236,13 @@ input:required {
     .wrapper {
         width: 90%;
         height: 90%;
+    }
+
+    .rightLine, .leftLine {
+        position: absolute !important;
+        background-color: black;
+        height: 2px;
+        width: 30%;
     }
 }
 

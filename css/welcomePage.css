@@ -27,7 +27,7 @@ body {
 
 .wrapper {
     width: 50%;
-    height: 30%;
+    height: 150px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -57,21 +57,21 @@ body {
 
 @media (max-width: 450px) {
     .wrapper {
-        height: 95%;
         width: 75%;
+        height: 300px;
     }
 }
 
 @media (max-width: 1079px) {
     .wrapper {
-        height: 60%;
         width: 70%;
+        height: 240px;
     }
 }
 
 @media (max-width: 380px) {
     .wrapper {
-        height: 90%;
         width: 90%;
+        height: 300px;
     }
 }

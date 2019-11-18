@@ -1,13 +1,3 @@
-<?php
-
-    require_once "dbConnection/dbconn.php";
-
-    if (isset($_POST['submit'])) {
-        header("Location: calendar.php");
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,23 +23,19 @@
 
             <span class="logInText">FORGOT PASSWORD</span>
 
-            <form action="login.php" method="post">
+            <form action="sendForgotPassword.php" method="post">
 
                 <div>
                     <input type="email" class="emailInput" name="email" value="" required/>
                     <label for="usernameInput">Email</label>
                 </div>
-                
-                <div>
-                    <input type="text" class="usernameInput" name="username" value=""  required/>
-                    <label for="passwordInput">Username</label>
 
                 <div class="error">
                     <span><?= $error?></span>
                 </div>
 
-                <div class="loginBtnContainer">
-                    <button class="loginBtn" name="submit">Send Email</button>
+                <div class="sendPasswordBtnContainer">
+                    <button class="sendPasswordBtn" name="submit">Send Email</button>
                 </div>
 
                 <a class="link" href="index.php">

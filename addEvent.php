@@ -13,8 +13,8 @@
     $eventDate = $_POST['eventDate'];
     $userId = $_POST['userId'];
 
-    $sql = "INSERT INTO `Events`(`Id`, `name`, `description`, `date`, `color`, `user_Id`, `calendar_Id`, `place`) VALUES (null, '$eventName', '$eventDescription', '$eventDate', '$eventColor', $userId, $userId, '$eventPlace')";
-    $conn->query($sql);
+    $stmt = $conn->prepare("INSERT INTO `Events` (`Id`, `name`, `description`, `date`, `color`, `user_Id`, `calendar_Id`, `place`) VALUES (null, '$eventName', '$eventDescription', '$eventDate', '$eventColor', $userId, $userId, '$eventPlace')");
+    $stmt->execute([null, $name, $eventDescription, $eventDate, $eventColor, $userId, $userId, $eventPlace]);
 
 
 

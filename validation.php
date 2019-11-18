@@ -2,11 +2,42 @@
 
     session_start();
 
+    require "dbConnection/dbconn.php";
+
     $allChecked = true;
 
-    function validate($name, $surname, $username, $email, $password1, $password2, $allChecked) {
+    function validate($name, $surname, $username, $email, $password1, $password2, $allChecked, $conn) {
+        
+        $usernameCount = 0;
+
+        $stmtToGetUsername = $conn->prepare("SELECT * FROM `Users` WHERE `username` = ?");
+        if ($stmtToGetUsername->execute(array("$username"))) {
+            while ($row = $stmtToGetUsername->fetch()) {
+                $usernameCount++;
+            }
+        }
+
+        $emailCount = 0;
+
+        $stmtToGetEmail = $conn->prepare("SELECT * FROM `Users` WHERE `mail` = ?");
+        if ($stmtToGetEmail->execute(array("$email"))) {
+            while ($row = $stmtToGetEmail->fetch()) {
+                $emailCount++;
+            }
+        }
+
         if (strlen($name) < 2) {
             $_SESSION['nameError'] = "Your name is too short. It has to be at least 2 characters long.";
+            $allChecked = false;
+        }
+
+        if ($usernameCount > 0) {
+            $_SESSION['usernameError'] = "This username is already taken.";
+            $allChecked = false;
+        }
+
+        if ($emailCount > 0) {
+            $_SESSION['emailError'] = "This email is already taken.";
             $allChecked = false;
         }
 

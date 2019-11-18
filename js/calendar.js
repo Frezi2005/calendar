@@ -12,13 +12,15 @@ $(() => {
             success: function(json) { /*Funkcja zawiera parametr*/
 
                 for (var i = 0; i < json.length; i++) {
-                    //console.log(json[i]);
-                    
+ 
+                    console.log(document.getElementsByClassName(json[i].date)[0].classList.contains("addEvent"));
+
                     if (document.getElementsByClassName(json[i].date)[0].classList.contains("addEvent")) {
                         document.getElementsByClassName(json[i].date)[0].innerHTML += " <br/><span class='event'>"+json[i].name + "<br/>" + json[i].place+"</span>";
                         document.getElementsByClassName(json[i].date)[0].style.backgroundColor = json[i].color;
                         document.getElementsByClassName(json[i].date)[0].style.color = "#ffffff";
                         document.getElementsByClassName(json[i].date)[0].style.fontWeight = "bold";
+                        document.getElementsByClassName(json[i].date)[0].style.opacity = "0.6";
                     }
 
                 }
@@ -113,3 +115,4 @@ $(() => {
     });
 
 });
+

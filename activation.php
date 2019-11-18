@@ -23,8 +23,8 @@
         }
         if ($index == 1) {
             $sqlToUpdateAccount = "UPDATE `Users` SET `is_active` = 1 WHERE `token` LIKE ?";
-            $stmt= $conn->prepare($sqlToUpdateAccount);
-            $stmt->execute(["%$token%"]);
+            $stmt2 = $conn->prepare($sqlToUpdateAccount);
+            $stmt2->execute(["%$token%"]);
             echo "Your account has been activated!";
         } else {
             echo "Invalid token!";

@@ -76,47 +76,18 @@
 
     //Setting up variables for next and previus mini calendars
 
-    $prevMonthTimestamp = strtotime($prev . '-01');
-    $nextMonthTimestamp = strtotime($next . '-01');
-    $prevMonthTitle = date('F, Y', $prevMonthTimestamp);
-    $nextMonthTitle = date('F, Y', $nextMonthTimestamp);
-    $prevMonthDay_count = date('t', $prevMonthTimestamp);
-    $nextMonthDay_count = date('t', $nextMonthTimestamp);
-    $prevMonthStr = date('N', $prevMonthTimestamp);
-    $nextMonthStr = date('N', $nextMonthTimestamp);
-    $prevMonthWeeks = [];
-    $nextMonthWeeks = [];
-    $prevMonthWeek = '';
-    $nextMonthWeek = '';
-
-
-    //Generating mini calendars
-
-    //Generating previous month calendar
-    $prevMonthWeek .= str_repeat('<td></td>', $prevMonthStr - 1);
-    for ($prevMonthDay = 1; $prevMonthDay <= $prevMonthDay_count; $prevMonthDay++, $prevMonthStr++) {
-        if ($prevMonthDay < 10) {
-            $prevMonthDay = "0".$prevMonthDay;
-        }
-        $prevMonthDate = $prev . '-' . $prevMonthDay;
-        if ($today == $prevMonthDate) {
-            $prevMonthWeek .= '<td class="today '.$prevMonthDate.'">';
-        } else {
-            $prevMonthWeek .= '<td class="'.$prevMonthDate.'">';
-        }
-
-        $prevMonthWeek .= $prevMonthDay . '</td>';
-        // Sunday OR last day of the month
-        if ($prevMonthStr % 7 == 0 || $prevMonthDay == $prevMonthDay_count) {
-            // last day of the month
-            if ($prevMonthDay == $prevMonthDay_count && $prevMonthStr % 7 != 0) {
-                // Add empty cell(s)
-                $prevMonthWeek .= str_repeat('<td></td>', 7 - $prevMonthTimestamp % 7);
-            }
-            $prevMonthWeeks[] = '<tr>' . $prevMonthWeek . '</tr>';
-            $prevMonthWeek = '';
-        }
-    }
+    // $prevMonthTimestamp = strtotime($prev . '-01');
+    // $nextMonthTimestamp = strtotime($next . '-01');
+    // $prevMonthTitle = date('F, Y', $prevMonthTimestamp);
+    // $nextMonthTitle = date('F, Y', $nextMonthTimestamp);
+    // $prevMonthDay_count = date('t', $prevMonthTimestamp);
+    // $nextMonthDay_count = date('t', $nextMonthTimestamp);
+    // $prevMonthStr = date('N', $prevMonthTimestamp);
+    // $nextMonthStr = date('N', $nextMonthTimestamp);
+    // $prevMonthWeeks = [];
+    // $nextMonthWeeks = [];
+    // $prevMonthWeek = '';
+    // $nextMonthWeek = '';
 
 
 ?>
@@ -165,36 +136,7 @@
 
                 </tbody>
             </table>
-
-            <!-- Previous month mini calendar -->
-            <table class="table-bordered table-striped prevMonthCalendar">
-                <thead>
-                    <tr>
-                        <th class="workDay">M</th>
-                        <th class="workDay">T</th>
-                        <th class="workDay">W</th>
-                        <th class="workDay">T</th>
-                        <th class="workDay">F</th>
-                        <th class="weekend">S</th>
-                        <th class="weekend">S</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php
-
-                        foreach ($prevMonthWeeks as $prevMonthWeek) {
-                            echo $prevMonthWeek;
-                        }
-
-                    ?>
-
-                </tbody>
-            </table>
-
-            <!-- Next month mini calendar -->
-                        
-            
+          
         </div>
     </div>
     <div class="box">

@@ -60,11 +60,6 @@ html {
     cursor: pointer;
 }
 
-.prevMonthCalendar {
-    width: 25%;
-    height: 200px;
-    background-color: white;
-}
 
 th {
     text-align: center;

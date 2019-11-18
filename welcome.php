@@ -20,7 +20,7 @@
 <body>
     <div class="wrapper">
         <span class="messageTitle">Activation email has been sent to: <?=$_SESSION['emailAddress']; ?></span><br/><br/>
-        <p class="message">Email with an account activation link has been sent to your email address.</p>
+        <p class="message">Email with an account activation link has been sent to your email address.<br/> Please check your inbox and spam folder.</p>
     </div>
 
     <div class="overlay"></div>

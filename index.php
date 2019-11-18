@@ -1,6 +1,19 @@
 <?php
 
+    define('FACEBOOK_API','435090794072664');
+
+    define('FACEBOOK_SECRET','ce97d28f0126f997fd4dcbfa33673f1e');
+
+    define('REDIRECT_URI','http://localhost/Calendar');
+
+    $facebook_redirect_uri = 'https://www.facebook.com/v5.0/dialog/oauth?client_id='.FACEBOOK_API.'&redirect_uri='.urlencode(REDIRECT_URI).'&sdk=php-sdk-4.0.12&scope=email';
+
+
     session_start();
+
+    if ($_SESSION['loggedIn']) {
+        header("Location: calendar.php");
+    }
 
     require_once "dbConnection/dbconn.php";
 
@@ -21,6 +34,28 @@
 </head>
 
 <body>
+
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '435090794072664',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v5.0'
+        });
+        
+        FB.AppEvents.logPageView();   
+        
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <div class="overlay"></div>
 
@@ -77,13 +112,37 @@
                     </a>
                 </div>
 
+                <div class="or">
+                    <div class="leftLine"></div>OR<div class="rightLine"></div>
+                </div>
+
+                <a  class="FBLogin" href="<?= $facebook_redirect_uri; ?>">Login by Facebook!</a>
+
             </form>
         </div>
     </div>
 
     <?php
+
         include "layouts/footer.html";
-    ?>
+
+        if(!empty($_REQUEST['code'])){
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/oauth/access_token?fields=email,name&client_id=".FACEBOOK_API."&redirect_uri=".urlencode(REDIRECT_URI)."&client_secret=".FACEBOOK_SECRET."&code=".$_REQUEST['code']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $fb_params = json_decode(curl_exec($ch));
+            curl_close($ch);
+            if(isset($fb_params->access_token)){
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/me?fields=email,name&access_token=".$fb_params->access_token);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $output = curl_exec($ch);
+                $fb_user = json_decode($output);
+                curl_close($ch);
+            } 
+        }
+
+   ?>
 
 </body>
 

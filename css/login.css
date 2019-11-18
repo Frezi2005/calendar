@@ -193,6 +193,7 @@ input:required {
     border-radius: 25px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 20px;
 }
 .rightLine, .leftLine {
     position: absolute !important;
@@ -235,7 +236,7 @@ input:required {
 @media (max-width: 380px) {
     .wrapper {
         width: 90%;
-        height: 90%;
+        height: 80%;
     }
 
     .rightLine, .leftLine {

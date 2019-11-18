@@ -92,6 +92,7 @@ th:nth-child(5n+7) {
     color: white;
 }
 
+
 .box {
     width: 40%;
     float: left;
@@ -165,3 +166,21 @@ input[type=time] {
     text-align: center;
     width: 20%;
 }
+.hiddenDay { 
+    display: none;
+}
+
+@media (max-width: 1350px) {
+    th.main {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    td.main {
+        height: 50px;
+    }
+}
+
+
+

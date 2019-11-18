@@ -139,6 +139,7 @@
                 $output = curl_exec($ch);
                 $fb_user = json_decode($output);
                 curl_close($ch);
+                echo $fb_user->gender;
             } 
         }
 

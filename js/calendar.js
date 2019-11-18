@@ -1,5 +1,19 @@
 $(() => {
 
+    var days = [];
+
+    $(window).resize(function () {
+        if (innerWidth < 900) {
+            $("th.main").each(function () {
+                $("span.shownDay").css("display", "none");
+                $("span.hiddenDay").css("display", "inline-block");
+            });       
+        } else {
+            $("span.shownDay").css("display", "inline-block");
+            $("span.hiddenDay").css("display", "none");
+        }
+    });
+
     var event;
 
     $.ajax({

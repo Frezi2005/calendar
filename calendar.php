@@ -115,13 +115,13 @@
             <table class="table table-striped table-bordered main-calendar">
                 <thead>
                     <tr>
-                        <th class="workDay main">MONDAY</th>
-                        <th class="workDay main">TUESDAY</th>
-                        <th class="workDay main">WEDNESDAY</th>
-                        <th class="workDay main">THURSDAY</th>
-                        <th class="workDay main">FRIDAY</th>
-                        <th class="weekend main">SATURDAY</th>
-                        <th class="weekend main">SUNDAY</th>
+                        <th class="workDay main"><span class="shownDay">MONDAY</span> <span class="hiddenDay">M</span></th>
+                        <th class="workDay main"><span class="shownDay">TUESDAY</span> <span class="hiddenDay">T</span></th>
+                        <th class="workDay main"><span class="shownDay">WEDNESDAY</span> <span class="hiddenDay">W</span></th>
+                        <th class="workDay main"><span class="shownDay">THURSDAY</span> <span class="hiddenDay">T</span></th>
+                        <th class="workDay main"><span class="shownDay">FRIDAY</span> <span class="hiddenDay">F</span></th>
+                        <th class="weekend main"><span class="shownDay">SATURDAY</span> <span class="hiddenDay">S</span></th>
+                        <th class="weekend main"><span class="shownDay">SUNDAY</span> <span class="hiddenDay">S</span></th>
                     </tr>
                 </thead>
                 <tbody>
